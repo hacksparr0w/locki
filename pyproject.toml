@@ -1,0 +1,20 @@
+[project]
+name = "locki"
+version = "0.1.0"
+description = "Fancy cryptography library with the most awesome primitives included"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "argon2",
+    "cryptography>=43.0.3",
+    "pydantic>=2.10.1",
+]
+
+[tool.uv.sources]
+argon2 = { git = "https://github.com/hacksparr0w/argon2.git" }
+
+[dependency-groups]
+dev = [
+    "pyright>=1.1.389",
+    "ruff>=0.8.0",
+]
