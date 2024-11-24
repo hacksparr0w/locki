@@ -67,13 +67,13 @@ class CryptographyConfiguration(BaseModel):
                 iv_length=12
             ),
             key_derivation=Argon2KeyDerivationConfiguration(
-                salt_length=32,
+                salt_length=16,
                 hash_length=32,
-                iterations=8,
-                memory=8 * 1024 ** 2,
-                parallelism=4,
+                iterations=2,
+                memory=1024 ** 2,
+                parallelism=1,
                 version=Argon2Version.V13,
-                variant=Argon2Variant.D
+                variant=Argon2Variant.ID
             ),
             recovery_code=RecoveryCodeConfiguration(
                 segments=5,
@@ -86,7 +86,7 @@ def build_aes_gcm_cipher(
     *,
     configuration: AesGcmCipherConfiguration,
     iv: bytes,
-    ad: Optional[bytes] = None
+    ad: Optional[bytes]
 ) -> AesGcmCipher:
     return AesGcmCipher(iv=iv, ad=ad)
 
