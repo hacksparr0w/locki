@@ -69,7 +69,7 @@ class CryptographyConfiguration(BaseModel):
             key_derivation=Argon2KeyDerivationConfiguration(
                 salt_length=16,
                 hash_length=32,
-                iterations=2,
+                iterations=4,
                 memory=1024 ** 2,
                 parallelism=1,
                 version=Argon2Version.V13,
